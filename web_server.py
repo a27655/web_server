@@ -29,16 +29,18 @@ while True:
         continue
 
     line = request.split('\n')[0]
-    print(line)
+    print('33:',line)
     path = line.split()[1]
-    print(path)
+    print('22', path)
 
     normal_response = b'Hello World!'
-    img_response = b'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\nHello img!<img src="img/img.gif">'
+    img_response = b'HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\nHello img!<img src="img/m.gif">'
     if path == '/':
         r = normal_response
     elif path == '/img':
         r = img_response
+    elif path == '/img/m.gif':
+        r = read_from_file('m.gif')
     else:
         r = b'404 NOT FOUND'
 
